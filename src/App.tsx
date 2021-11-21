@@ -15,8 +15,8 @@ function App() {
                 <Route path='/signUp' exact component={SignUp}/>
             </Switch>
         </Router>
-
     );
+
 }
 
 export default App;
