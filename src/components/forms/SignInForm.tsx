@@ -37,6 +37,7 @@ export function SignInForm() {
             input.classList.add('error')
         } else {
             input.classList.remove('error')
+            setInputError('')
         }
     }
 
