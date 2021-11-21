@@ -1,44 +1,24 @@
 import React, {useEffect, useState} from "react";
 
-export function SignInForm() {
+export function SignUpForm() {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
-    // const [emailDirty, setEmailDirty] = useState(false)
-    // const [passwordDirty, setPasswordDirty] = useState(false)
+    const [repassword, setRepassword] = useState('');
     const [emailError, setEmailError] = useState(true);
     const [passwordError, setPasswordError] = useState(true)
+    const [repasswordError, setRepasswordError] = useState(true)
     const [inputError, setInputError] = useState('')
     const [formValid, setFormValid] = useState(false)
 
-    // useEffect(() => {
-    //     if (emailError || passwordError) {
-    //         setInputError('Неверные логин или пароль')
-    //         // setFormValid(false)
-    //     } else {
-    //         setInputError('')
-    //         // setFormValid(true)
-    //     }
-    // }, [emailError, passwordError])
-
-    //начинаем чтото вводить в инпуты и кнопка активируется
-    useEffect(()=>{
-        if (email.length > 0 || password.length > 0) {
+    // начинаем что-то вводить в инпуты и кнопка активируется
+    useEffect(() => {
+        if (email.length > 0 || password.length > 0 || repassword.length > 0) {
             setFormValid(true);
-
-        } else  {
+        } else {
             setFormValid(false)
         }
-    }, [email, password])
+    }, [email, password, repassword])
 
-    // const handlerBlur = (event: any) => {
-    //     if (event.target.name === 'email') {
-    //         setEmailDirty(true)
-    //         return
-    //     } else if (event.target.name === 'password') {
-    //         setPasswordDirty(true)
-    //         return
-    //     }
-    // }
 
     const validateEmail = (event: any) => {
         const email = event.target.value
@@ -49,50 +29,58 @@ export function SignInForm() {
         if (!re.test(String(email).toLowerCase())) {
             setEmailError(true)
             input.classList.add('error')
+            setInputError('Некорректный email')
         } else {
             setEmailError(false)
             input.classList.remove('error')
+            setInputError('')
         }
     }
 
     const validatePassword = (event: any) => {
         const password = event.target.value
-        const input = event.target
         setPassword(password)
+        const input = event.target
 
         if (password.length < 3 || password.length > 10) {
             setPasswordError(true)
             input.classList.add('error')
+            setInputError('Длина пароля должна быть от 3 до 10 символов')
         } else {
             setPasswordError(false)
             input.classList.remove('error')
-        }
-    }
-
-    // const checkButton = (event: any) => {
-    //     const input = event.target
-    //     if (inputError) {
-    //         input.classList.add('block')
-    //     } else {
-    //         input.classList.remove('block')
-    //     }
-    // }
-
-    //при коике на кнопук проверяем валидность инпутов и если тчо выводим ошибку
-    const onButtonClick=(e:any)=>{
-        const button = e.target;
-        if(emailError || passwordError){
-            setFormValid(false);
-            button.classList.add('block')
-            setInputError('Неверные логин или пароль')
-        }
-        else{
-            setFormValid(true);
-            button.classList.remove('block')
             setInputError('')
         }
     }
 
+    const validateRepassword = (e:any) => {
+        const repassword = e.target.value
+        setRepassword(repassword)
+        if (password !== repassword) {
+            setRepasswordError(true)
+            // setInputError('Пароли не совпадают')
+        } else {
+            setRepasswordError(false)
+            // setInputError('')
+        }
+    }
+
+    //при клике на кнопку проверяем валидность инпутов и если что выводим ошибку
+    const onButtonClick = (e: any) => {
+         // const button = e.target;
+        if (emailError) {
+            setFormValid(false)
+            setInputError('Некорректный email')
+        } else if (passwordError || repasswordError) {
+            setFormValid(false);
+            // button.classList.add('block')
+            setInputError('Пароли не совпадают')
+        } else {
+            setFormValid(true);
+            // button.classList.remove('block')
+            setInputError('')
+        }
+    }
 
     return (
         <div className="signIn">
@@ -111,10 +99,16 @@ export function SignInForm() {
                     value={password}
                     onChange={validatePassword}
                 />
-
+                <input
+                    name="repassword"
+                    type="password"
+                    placeholder="Повторите пароль"
+                    value={repassword}
+                    onChange={validateRepassword}
+                />
                 {/*{((emailDirty && passwordDirty) && inputError) && <div style={{color: 'red', marginTop: 18}}>{inputError}</div>}*/}
                 {(inputError) && <div style={{color: 'red', marginTop: 18}}>{inputError}</div>}
-                <button disabled={!formValid} onClick={onButtonClick} name = "button" type="submit">Войти</button>
+                <button disabled={!formValid} onClick={onButtonClick} name="button" type="submit">Регистрация</button>
             </form>
         </div>
     );
