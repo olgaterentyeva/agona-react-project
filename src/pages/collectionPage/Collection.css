@@ -1,0 +1,12 @@
+h1 {
+    font-family: SF Pro Display, serif;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 36px;
+    line-height: 41px;
+    text-align: center;
+}
+
+.collection h1 {
+    margin-top: -180px;
+}

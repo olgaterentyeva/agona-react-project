@@ -1,24 +1,15 @@
 import React, {useEffect, useState} from "react";
+import {Button} from "../components/button/Button";
+import {Input} from "../components/input/Input";
+import {QuestionSlider} from "../components/questionSlider/QuestionSlider";
 
 export function SignInForm() {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
-    // const [emailDirty, setEmailDirty] = useState(false)
-    // const [passwordDirty, setPasswordDirty] = useState(false)
     const [emailError, setEmailError] = useState(true);
     const [passwordError, setPasswordError] = useState(true)
     const [inputError, setInputError] = useState('')
     const [formValid, setFormValid] = useState(false)
-
-    // useEffect(() => {
-    //     if (emailError || passwordError) {
-    //         setInputError('Неверные логин или пароль')
-    //         // setFormValid(false)
-    //     } else {
-    //         setInputError('')
-    //         // setFormValid(true)
-    //     }
-    // }, [emailError, passwordError])
 
     //начинаем чтото вводить в инпуты и кнопка активируется
     useEffect(()=>{
@@ -29,16 +20,6 @@ export function SignInForm() {
             setFormValid(false)
         }
     }, [email, password])
-
-    // const handlerBlur = (event: any) => {
-    //     if (event.target.name === 'email') {
-    //         setEmailDirty(true)
-    //         return
-    //     } else if (event.target.name === 'password') {
-    //         setPasswordDirty(true)
-    //         return
-    //     }
-    // }
 
     const validateEmail = (event: any) => {
         const email = event.target.value
@@ -69,15 +50,6 @@ export function SignInForm() {
         }
     }
 
-    // const checkButton = (event: any) => {
-    //     const input = event.target
-    //     if (inputError) {
-    //         input.classList.add('block')
-    //     } else {
-    //         input.classList.remove('block')
-    //     }
-    // }
-
     //при коике на кнопук проверяем валидность инпутов и если тчо выводим ошибку
     const onButtonClick=(e:any)=>{
         const button = e.target;
@@ -93,28 +65,26 @@ export function SignInForm() {
         }
     }
 
-
     return (
         <div className="signIn">
             <form className="signIn">
-                <input
+                <Input
                     name="email"
                     type="text"
                     placeholder="Адрес электронной почты"
                     value={email}
                     onChange={validateEmail}
                 />
-                <input
+                <Input
                     name="password"
                     type="password"
                     placeholder="Пароль"
                     value={password}
                     onChange={validatePassword}
                 />
-
-                {/*{((emailDirty && passwordDirty) && inputError) && <div style={{color: 'red', marginTop: 18}}>{inputError}</div>}*/}
                 {(inputError) && <div style={{color: 'red', marginTop: 18}}>{inputError}</div>}
-                <button disabled={!formValid} onClick={onButtonClick} name = "button" type="submit">Войти</button>
+                <Button type="submit" disabled={!formValid} onClick={onButtonClick} buttonText="Войти"/>
+                <QuestionSlider question='Еще не зарегистрированы?' href='/signUp' hrefText='Регистрация'/>
             </form>
         </div>
     );

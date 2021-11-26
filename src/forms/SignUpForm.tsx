@@ -1,4 +1,7 @@
 import React, {useEffect, useState} from "react";
+import {Button} from "../components/button/Button";
+import {Input} from "../components/input/Input";
+import {QuestionSlider} from "../components/questionSlider/QuestionSlider";
 
 export function SignUpForm() {
     const [email, setEmail] = useState('');
@@ -44,11 +47,11 @@ export function SignUpForm() {
 
         if (password.length < 3 || password.length > 10) {
             setPasswordError(true)
-            input.classList.add('error')
+            // input.classList.add('error')
             setInputError('Длина пароля должна быть от 3 до 10 символов')
         } else {
             setPasswordError(false)
-            input.classList.remove('error')
+            // input.classList.remove('error')
             setInputError('')
         }
     }
@@ -56,11 +59,14 @@ export function SignUpForm() {
     const validateRepassword = (e:any) => {
         const repassword = e.target.value
         setRepassword(repassword)
+        const input = e.target
         if (password !== repassword) {
             setRepasswordError(true)
+            input.classList.add('error')
             // setInputError('Пароли не совпадают')
         } else {
             setRepasswordError(false)
+            input.classList.remove('error')
             // setInputError('')
         }
     }
@@ -85,30 +91,30 @@ export function SignUpForm() {
     return (
         <div className="signIn">
             <form className="signIn">
-                <input
+                <Input
                     name="email"
                     type="text"
                     placeholder="Адрес электронной почты"
                     value={email}
                     onChange={validateEmail}
                 />
-                <input
+                <Input
                     name="password"
                     type="password"
                     placeholder="Пароль"
                     value={password}
                     onChange={validatePassword}
                 />
-                <input
+                <Input
                     name="repassword"
                     type="password"
                     placeholder="Повторите пароль"
                     value={repassword}
                     onChange={validateRepassword}
                 />
-                {/*{((emailDirty && passwordDirty) && inputError) && <div style={{color: 'red', marginTop: 18}}>{inputError}</div>}*/}
                 {(inputError) && <div style={{color: 'red', marginTop: 18}}>{inputError}</div>}
-                <button disabled={!formValid} onClick={onButtonClick} name="button" type="submit">Регистрация</button>
+                <Button type="submit" disabled={!formValid} onClick={onButtonClick} buttonText="Регистрация"/>
+                <QuestionSlider question='Есть логин для входа?' href='/signIn' hrefText='Войти'/>
             </form>
         </div>
     );
