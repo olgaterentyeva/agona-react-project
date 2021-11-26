@@ -1,0 +1,55 @@
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 280px;
+    height: 32px;
+    margin-left: 315px;
+}
+
+.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border-radius: 9px;
+
+    background: rgba(118, 118, 128, 0.12);
+    transition: 0.4s;
+}
+
+.slider:before {
+    position: absolute;
+    content: "Буду смотреть";
+    height: 28px;
+    width: 143px;
+    border-radius: 7px;
+    left: 2px;
+    right: 2px;
+    bottom: 2px;
+    top: 2px;
+    background-color: white;
+    transition: 0.4s;
+}
+
+.slider:after {
+    content: 'Просмотрено';
+    margin-left: 160px;
+}
+
+/*input:checked + .slider {*/
+/*    background-color: #64ffd1;*/
+
+/*}*/
+
+input:checked  + .slider:before {
+    transform: translateX(132px);
+}
