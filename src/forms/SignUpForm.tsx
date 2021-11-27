@@ -1,7 +1,10 @@
 import React, {useEffect, useState} from "react";
+import {Redirect} from 'react-router-dom';
 import {Button} from "../components/button/Button";
 import {Input} from "../components/input/Input";
 import {QuestionSlider} from "../components/questionSlider/QuestionSlider";
+import loading from '../images/loading.png';
+import {NavLink} from "react-router-dom";
 
 export function SignUpForm() {
     const [email, setEmail] = useState('');
@@ -12,6 +15,8 @@ export function SignUpForm() {
     const [repasswordError, setRepasswordError] = useState(true)
     const [inputError, setInputError] = useState('')
     const [formValid, setFormValid] = useState(false)
+    const [isRegistered, setIsRegistered] = useState(false)
+    const [link, setLink] = useState('/collection')
 
     // начинаем что-то вводить в инпуты и кнопка активируется
     useEffect(() => {
@@ -56,7 +61,7 @@ export function SignUpForm() {
         }
     }
 
-    const validateRepassword = (e:any) => {
+    const validateRepassword = (e: any) => {
         const repassword = e.target.value
         setRepassword(repassword)
         const input = e.target
@@ -73,7 +78,7 @@ export function SignUpForm() {
 
     //при клике на кнопку проверяем валидность инпутов и если что выводим ошибку
     const onButtonClick = (e: any) => {
-         // const button = e.target;
+        // const button = e.target;
         if (emailError) {
             setFormValid(false)
             setInputError('Некорректный email')
@@ -84,7 +89,13 @@ export function SignUpForm() {
         } else {
             setFormValid(true);
             // button.classList.remove('block')
-            setInputError('')
+            setIsRegistered(true)
+            setTimeout(() => {
+                setIsRegistered(false)
+            }, 3000);
+            setInputError('');
+            return <Redirect to={link}/>
+
         }
     }
 
@@ -113,7 +124,20 @@ export function SignUpForm() {
                     onChange={validateRepassword}
                 />
                 {(inputError) && <div style={{color: 'red', marginTop: 18}}>{inputError}</div>}
-                <Button type="submit" disabled={!formValid} onClick={onButtonClick} buttonText="Регистрация"/>
+                {isRegistered ?
+                    <div id="floatingBarsG">
+                        <div className="blockG" id="rotateG_01"/>
+                        <div className="blockG" id="rotateG_02"/>
+                        <div className="blockG" id="rotateG_03"/>
+                        <div className="blockG" id="rotateG_04"/>
+                        <div className="blockG" id="rotateG_05"/>
+                        <div className="blockG" id="rotateG_06"/>
+                        <div className="blockG" id="rotateG_07"/>
+                        <div className="blockG" id="rotateG_08"/>
+                    </div> :
+                    <Button type="submit" disabled={!formValid} onClick={onButtonClick} buttonText="Регистрация"/>
+                }
+
                 <QuestionSlider question='Есть логин для входа?' href='/signIn' hrefText='Войти'/>
             </form>
         </div>
