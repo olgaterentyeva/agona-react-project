@@ -8,10 +8,10 @@ export function Main() {
     return (
         <div className="main">
             <Header />
-            <div className="img">
-                <img src={logo} className="logo" alt="logotype"/>
-                <img src={agona} className="agona" alt="agona img"/>
-            </div>
+                <div className="img">
+                    <img src={logo} className="logo" alt="logotype"/>
+                    <img src={agona} className="agona" alt="agona img"/>
+                </div>
         </div>
     );
 }
