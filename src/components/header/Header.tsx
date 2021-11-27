@@ -1,6 +1,6 @@
 import React from "react";
 import miniLogo from "./../../images/mini-logo.svg";
-// import collectionImg from "./../../images/coolectionImg.svg"
+// import collectionImg from "./../../images/circle.svg"
 // import avatar from "../images/avatar.svg";
 import "./Header.css"
 

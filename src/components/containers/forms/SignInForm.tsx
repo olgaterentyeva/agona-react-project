@@ -1,7 +1,8 @@
 import React, {useEffect, useState} from "react";
-import {Button} from "../components/button/Button";
-import {Input} from "../components/input/Input";
-import {QuestionSlider} from "../components/questionSlider/QuestionSlider";
+import {Button} from "../../ui/button/Button";
+import {Input} from "../../ui/input/Input";
+import {QuestionSlider} from "../../ui/questionSlider/QuestionSlider";
+import { useHistory } from "react-router-dom";
 
 export function SignInForm() {
     const [email, setEmail] = useState('');
@@ -10,6 +11,8 @@ export function SignInForm() {
     const [passwordError, setPasswordError] = useState(true)
     const [inputError, setInputError] = useState('')
     const [formValid, setFormValid] = useState(false)
+    const [isRegistered, setIsRegistered] = useState(false)
+    const history = useHistory();
 
     //начинаем чтото вводить в инпуты и кнопка активируется
     useEffect(()=>{
@@ -62,6 +65,13 @@ export function SignInForm() {
             setFormValid(true);
             button.classList.remove('block')
             setInputError('')
+            setIsRegistered(true)
+            setTimeout(() => {
+                setIsRegistered(false)
+            }, 3000);
+            setTimeout(() => {
+                history.push("/collection");
+            }, 3001)
         }
     }
 
@@ -83,7 +93,19 @@ export function SignInForm() {
                     onChange={validatePassword}
                 />
                 {(inputError) && <div style={{color: 'red', marginTop: 18}}>{inputError}</div>}
-                <Button type="submit" disabled={!formValid} onClick={onButtonClick} buttonText="Войти"/>
+                {isRegistered ?
+                    <div id="floatingBarsG">
+                        <div className="blockG" id="rotateG_01"/>
+                        <div className="blockG" id="rotateG_02"/>
+                        <div className="blockG" id="rotateG_03"/>
+                        <div className="blockG" id="rotateG_04"/>
+                        <div className="blockG" id="rotateG_05"/>
+                        <div className="blockG" id="rotateG_06"/>
+                        <div className="blockG" id="rotateG_07"/>
+                        <div className="blockG" id="rotateG_08"/>
+                    </div> :
+                    <Button type="submit" disabled={!formValid} onClick={onButtonClick} buttonText="Регистрация"/>
+                }
                 <QuestionSlider question='Еще не зарегистрированы?' href='/signUp' hrefText='Регистрация'/>
             </form>
         </div>

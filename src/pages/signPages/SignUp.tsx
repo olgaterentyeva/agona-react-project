@@ -1,6 +1,6 @@
 import React from "react";
 import logo from "../../images/logo.svg";
-import {SignUpForm} from "../../forms/SignUpForm";
+import {SignUpForm} from "../../components/containers/forms/SignUpForm";
 import './Sign.css';
 
 export const SignUp = () =>{

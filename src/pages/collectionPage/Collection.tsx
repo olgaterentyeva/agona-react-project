@@ -1,7 +1,7 @@
 import React from "react";
 import {Header} from "../../components/header/Header";
 import './Collection.css';
-import {ToggleSwitch} from "../../components/toggleSwitch/ToggleSwitch";
+import {ToggleSwitch} from "../../components/ui/toggleSwitch/ToggleSwitch";
 import menu from "../../images/menu.svg";
 
 export function Collection() {

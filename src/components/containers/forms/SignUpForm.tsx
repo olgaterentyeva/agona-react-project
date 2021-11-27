@@ -1,10 +1,9 @@
 import React, {useEffect, useState} from "react";
-import {Redirect} from 'react-router-dom';
-import {Button} from "../components/button/Button";
-import {Input} from "../components/input/Input";
-import {QuestionSlider} from "../components/questionSlider/QuestionSlider";
-import loading from '../images/loading.png';
-import {NavLink} from "react-router-dom";
+import {Button} from "../../ui/button/Button";
+import {Input} from "../../ui/input/Input";
+import {QuestionSlider} from "../../ui/questionSlider/QuestionSlider";
+import {Redirect} from "react-router";
+import {useHistory} from "react-router-dom";
 
 export function SignUpForm() {
     const [email, setEmail] = useState('');
@@ -16,7 +15,7 @@ export function SignUpForm() {
     const [inputError, setInputError] = useState('')
     const [formValid, setFormValid] = useState(false)
     const [isRegistered, setIsRegistered] = useState(false)
-    const [link, setLink] = useState('/collection')
+    const history = useHistory();
 
     // начинаем что-то вводить в инпуты и кнопка активируется
     useEffect(() => {
@@ -88,14 +87,15 @@ export function SignUpForm() {
             setInputError('Пароли не совпадают')
         } else {
             setFormValid(true);
+            setInputError('');
             // button.classList.remove('block')
             setIsRegistered(true)
             setTimeout(() => {
                 setIsRegistered(false)
             }, 3000);
-            setInputError('');
-            return <Redirect to={link}/>
-
+            setTimeout(() => {
+                history.push("/collection");
+            }, 3001)
         }
     }
 
@@ -137,7 +137,6 @@ export function SignUpForm() {
                     </div> :
                     <Button type="submit" disabled={!formValid} onClick={onButtonClick} buttonText="Регистрация"/>
                 }
-
                 <QuestionSlider question='Есть логин для входа?' href='/signIn' hrefText='Войти'/>
             </form>
         </div>

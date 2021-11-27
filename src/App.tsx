@@ -8,6 +8,7 @@ import {Main} from "./pages/mainPage/Main";
 import {Collection} from "./pages/collectionPage/Collection";
 import {Provider} from "mobx-react";
 import {mainStore} from "./stores/MainStore";
+import {Redirect} from "react-router";
 
 function App() {
 
@@ -19,6 +20,7 @@ function App() {
                     <Route path='/signIn' exact component={SignIn}/>
                     <Route path='/signUp' exact component={SignUp}/>
                     <Route path='/collection' exact component={Collection}/>
+                    <Redirect  to="/collection"/>
                 </Switch>
             </Provider>
         </Router>
