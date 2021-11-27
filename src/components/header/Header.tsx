@@ -9,12 +9,12 @@ export function Header() {
         <div className="header">
             <div className="headerContainer">
                 <div className="hrefs">
-                    <a href="#" className="leftHref">Коллекция</a>
-                    <a href="#" className="leftHref">Добавить</a>
+                    <a href="#">Коллекция</a>
+                    <a href="#">Добавить</a>
                 </div>
                     <img src={miniLogo} className="miniLogo" alt="mini logotype"/>
                 <div className="hrefs">
-                    <a href="#" className="">Поиск</a>
+                    <a href="#">Поиск</a>
                     {/*<img src={avatar} alt="avatar"/>*/}
                 </div>
             </div>

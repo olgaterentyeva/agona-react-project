@@ -10,3 +10,13 @@ h1 {
 .collection h1 {
     margin-top: -180px;
 }
+
+.switch_menu {
+    display: flex;
+    flex-direction: row;
+}
+
+.switch_menu img {
+    margin-top: 5px;
+    cursor: pointer;
+}

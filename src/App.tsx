@@ -6,18 +6,21 @@ import {SignIn} from "./pages/signPages/SignIn";
 import {SignUp} from "./pages/signPages/SignUp";
 import {Main} from "./pages/mainPage/Main";
 import {Collection} from "./pages/collectionPage/Collection";
-
+import {Provider} from "mobx-react";
+import {mainStore} from "./stores/MainStore";
 
 function App() {
 
     return (
         <Router>
-            <Switch>
-                <Route path='/' exact component={Main}/>
-                <Route path='/signIn' exact component={SignIn}/>
-                <Route path='/signUp' exact component={SignUp}/>
-                <Route path='/collection' exact component={Collection}/>
-            </Switch>
+            <Provider {...mainStore}>
+                <Switch>
+                    <Route path='/' exact component={Main}/>
+                    <Route path='/signIn' exact component={SignIn}/>
+                    <Route path='/signUp' exact component={SignUp}/>
+                    <Route path='/collection' exact component={Collection}/>
+                </Switch>
+            </Provider>
         </Router>
     );
 

@@ -4,6 +4,12 @@
     width: 280px;
     height: 32px;
     margin-left: 315px;
+    font-family: SF Pro Text, serif;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 15px;
+    line-height: 20px;
+    align-items: center;
 }
 
 .switch input {
@@ -29,6 +35,7 @@
 .slider:before {
     position: absolute;
     content: "Буду смотреть";
+    align-content: center;
     height: 28px;
     width: 143px;
     border-radius: 7px;
@@ -43,13 +50,14 @@
 .slider:after {
     content: 'Просмотрено';
     margin-left: 160px;
+    align-content: center;
 }
 
 /*input:checked + .slider {*/
 /*    background-color: #64ffd1;*/
-
 /*}*/
 
 input:checked  + .slider:before {
     transform: translateX(132px);
 }
+
