@@ -1,63 +1,83 @@
 .switch {
-    position: relative;
-    display: inline-block;
-    width: 280px;
+    margin: 0 auto;
+}
+
+.button-area {
+    width: 343px;
     height: 32px;
-    margin-left: 315px;
-    font-family: SF Pro Text, serif;
-    font-style: normal;
-    font-weight: 600;
-    font-size: 15px;
-    line-height: 20px;
-    align-items: center;
+    margin: 100px auto;
+    position: relative;
 }
 
-.switch input {
-    opacity: 0;
-    width: 0;
-    height: 0;
-}
-
-.slider {
+.button-area .main-button {
     position: absolute;
-    cursor: pointer;
-
     top: 0;
     left: 0;
-    right: 0;
-    bottom: 0;
+    width: 100%;
+    height: 100%;
+    background: #e4e4e4;
     border-radius: 9px;
-
-    background: rgba(118, 118, 128, 0.12);
-    transition: 0.4s;
 }
 
-.slider:before {
+.button-area .checkbox {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+    z-index: 100;
+    opacity: 0;
+}
+
+.button-area .text:after {
     position: absolute;
     content: "Буду смотреть";
-    align-content: center;
+    top: 1.5px;
+    left: 3px;
+    width: 165px;
     height: 28px;
-    width: 143px;
+    background: white;
+    color: black;
+    font-weight: 600;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+    line-height: 35px;
     border-radius: 7px;
-    left: 2px;
-    right: 2px;
-    bottom: 2px;
-    top: 2px;
-    background-color: white;
     transition: 0.4s;
+    right: 8px;
 }
 
-.slider:after {
-    content: 'Просмотрено';
-    margin-left: 160px;
-    align-content: center;
+.button-area .textBack:after {
+    content: "Просмотрено";
+    width: 140px;
+    height: 0;
+    float: right;
+    color: black;
+    font-weight: 600;
+    display: flex;
+    text-align: center;
+    padding-top: 5px;
 }
 
-/*input:checked + .slider {*/
-/*    background-color: #64ffd1;*/
-/*}*/
-
-input:checked  + .slider:before {
-    transform: translateX(132px);
+.button-area .textBack:before {
+    content: "Буду смотреть";
+    padding-left: 27px;
+    width: 140px;
+    height: 0;
+    float: left;
+    color: black;
+    font-weight: 600;
+    display: flex;
+    text-align: center;
+    padding-top: 5px;
 }
 
+.button-area .checkbox:checked + .text:after {
+    content: "Просмотрено";
+    /*активировали сдвиг ползунка вправо на 175px*/
+    left: 175px;
+    background: white;
+}
