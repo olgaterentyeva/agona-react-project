@@ -1,16 +1,17 @@
-.img {
-    margin-top: 259px;
-}
-
-img.logo {
+.app-logo{
     width: 292px;
     height: 126px;
+    display: flex;
+    margin: 0 auto;
+    padding-top: 180px;
 }
 
-img.agona {
+.agona{
     width: 112px;
     height: 51px;
-    text-align: end;
+    display: flex;
+    margin: 0 auto;
+    padding-top: 200px;
 }
 
 

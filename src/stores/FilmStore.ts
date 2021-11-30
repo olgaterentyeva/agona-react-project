@@ -1,32 +1,89 @@
-import {action, observable} from "mobx";
 import {FilmModel} from "../models/Film.model";
+import {makeObservable, observable} from "mobx";
+import girl from '../images/films/girl.svg';
+import godzilla from '../images/films/godzilla.svg';
+import father from '../images/films/father.svg';
+import drunk from '../images/films/drunk.svg';
+import mank from '../images/films/mank.svg';
+import earth from '../images/films/earth.svg';
+import minari from '../images/films/minari.svg';
+import soul from '../images/films/soul.svg';
+import solstice from '../images/films/solstice.svg';
 
 export class FilmStore {
-    //содержит поля, расширенные с помощью mobx
-    //observable - некоторое поле внутри стора, перерисовывает толко конкретное поле при подписке
-
     @observable films: Array<FilmModel> = [
         {
+            id: 1,
             rating: 6.9,
-            name: 'Минари'
+            img: minari,
+            year: 2020,
+            description: "Протагонист пытается обезвредить террориста с помощью уникальной технологии. Блокбастер-пазл Кристофера Нолана.",
+            title: 'Минари'
         },
         {
+            id: 2,
             rating: 6.6,
-            name: 'Солнцестояние'
+            img: solstice,
+            year: 2020,
+            description: "Протагонист пытается обезвредить террориста с помощью уникальной технологии. Блокбастер-пазл Кристофера Нолана.",
+            title: 'Солцнестояние'
         },
         {
+            id: 3,
             rating: 7.1,
-            name: 'Манк'
+            img: mank,
+            year: 2020,
+            description: "Протагонист пытается обезвредить террориста с помощью уникальной технологии. Блокбастер-пазл Кристофера Нолана.",
+            title: 'Манк'
         },
         {
+            id: 4,
             rating: 6.8,
-            name: 'Дувушка, пода...'
+            img: girl,
+            year: 2020,
+            description: "Протагонист пытается обезвредить террориста с помощью уникальной технологии. Блокбастер-пазл Кристофера Нолана.",
+            title: 'Девушка, подающая надежды'
+        },
+        {
+            id: 5,
+            rating: 7.3,
+            img: earth,
+            year: 2020,
+            description: "Протагонист пытается обезвредить террориста с помощью уникальной технологии. Блокбастер-пазл Кристофера Нолана.",
+            title: 'Земля кочевников'
+        },
+        {
+            id: 6,
+            rating: 7.9,
+            img: father,
+            year: 2020,
+            description: "Протагонист пытается обезвредить террориста с помощью уникальной технологии. Блокбастер-пазл Кристофера Нолана.",
+            title: 'Отец'
+        },
+        {
+            id: 7,
+            rating: 7.5,
+            img: drunk,
+            year: 2020,
+            description: "Протагонист пытается обезвредить террориста с помощью уникальной технологии. Блокбастер-пазл Кристофера Нолана.",
+            title: 'Еще по одной'
+        },
+        {
+            id: 8,
+            rating: 8.3,
+            img: soul,
+            year: 2020,
+            description: "Протагонист пытается обезвредить террориста с помощью уникальной технологии. Блокбастер-пазл Кристофера Нолана.",
+            title: 'Душа'
+        },
+        {
+            id: 9,
+            rating: 6.1,
+            img: godzilla,
+            year: 2020,
+            description: "Протагонист пытается обезвредить террориста с помощью уникальной технологии. Блокбастер-пазл Кристофера Нолана.",
+            title: 'Годзилла'
         }
-    ];
-
-    @action
-    addFilm = (film: FilmModel) => {
-        this.films.push(film);
-    }
+    ]
 
 }

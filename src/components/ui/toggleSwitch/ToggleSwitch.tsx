@@ -14,5 +14,5 @@ export const ToggleSwitch = () => {
             </div>
         </div>
     );
-
 }
+

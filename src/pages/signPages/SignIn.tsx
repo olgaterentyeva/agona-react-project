@@ -1,5 +1,5 @@
 import logo from "../../images/logo.svg";
-import {SignInForm} from "../../components/containers/forms/SignInForm";
+import {SignInFormWithStore} from "../../forms/SignInFormWithStore";
 import './Sign.css';
 
 import React from "react";
@@ -7,9 +7,9 @@ import React from "react";
 export const SignIn = () => {
 
     return (
-        <div className="App">
-            <img src={logo} alt="logotype"/>
-            <SignInForm/>
+        <div className="signForm">
+            <img src={logo} className="signImg" alt="logotype"/>
+            <SignInFormWithStore/>
         </div>
     );
 }

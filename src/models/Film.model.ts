@@ -1,4 +1,8 @@
 export interface FilmModel {
-    rating: number,
-    name: string
+    id: number
+    rating: number
+    img: any
+    year: number
+    description: string
+    title: string
 }

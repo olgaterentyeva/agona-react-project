@@ -1,14 +1,14 @@
 import React from "react";
 import logo from "../../images/logo.svg";
-import {SignUpForm} from "../../components/containers/forms/SignUpForm";
+import {SignUpFormWithStore} from "../../forms/SignUpFormWithStore";
 import './Sign.css';
 
 export const SignUp = () =>{
 
     return (
-        <div className="App">
-            <img src={logo} alt="logotype"/>
-            <SignUpForm/>
+        <div className="signForm">
+            <img src={logo} className="signImg" alt="logotype"/>
+            <SignUpFormWithStore/>
         </div>
     );
 }
