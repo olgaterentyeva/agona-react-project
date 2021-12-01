@@ -1,7 +1,7 @@
 import React from 'react';
 import './App.css';
 import './pages/signPages/Sign.css';
-import { BrowserRouter as Router, Switch, Route} from "react-router-dom";
+import {BrowserRouter as Router, Switch, Route} from "react-router-dom";
 import {SignIn} from "./pages/signPages/SignIn";
 import {SignUp} from "./pages/signPages/SignUp";
 import {Main} from "./pages/mainPage/Main";
@@ -22,11 +22,12 @@ function App() {
                     <Route path='/signUp' exact component={SignUp}/>
                     <Route path='/collection' exact component={CollectionFilmsPage}/>
                     <Route path="/collection/:id" exact component={SeparateFilmPage}/>
-                    <Redirect  to="/collection"/>
+                    <Redirect to="/collection"/>
                 </Switch>
             </Provider>
         </Router>
     );
 
 }
+
 export default App;

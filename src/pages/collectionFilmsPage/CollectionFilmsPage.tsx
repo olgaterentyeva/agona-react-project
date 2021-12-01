@@ -5,7 +5,6 @@ import {useStores} from "../../utils";
 import {Film} from "../../components/film/Film";
 import {ToggleSwitch} from "../../components/ui/toggleSwitch/ToggleSwitch";
 import menu from '../../images/menu.svg'
-import {NavLink} from "react-router-dom";
 
 export const CollectionFilmsPage = observer(() => {
 
@@ -13,10 +12,8 @@ export const CollectionFilmsPage = observer(() => {
 
     return (
         <>
-            <BaseLayout
-
-            >
-                <h1 className = "collectionTitle">Коллекция</h1>
+            <BaseLayout>
+                <h1 className="collectionTitle">Коллекция</h1>
                 <div className="switch-menu">
                     <ToggleSwitch/>
                     <img src={menu} alt="menu"/>
@@ -27,7 +24,6 @@ export const CollectionFilmsPage = observer(() => {
                             <div><Film key={film.id} film={film}/></div>
                         ))}
                     </div>
-
                 </div>
             </BaseLayout>
         </>

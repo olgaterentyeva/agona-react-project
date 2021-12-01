@@ -105,13 +105,16 @@ export default class SignInStore {
 
     validateRepassword = (event: any) => {
         const password = event.target.value
+        const input = event.target
         this.setRepassword(password)
         if (password !== this.password) {
             this.setRepasswordError(true)
             this.setInputError('Пароли не совпадают')
+            input.classList.add('error')
         } else {
             this.setRepasswordError(false)
             this.setInputError('');
+            input.classList.remove('error')
         }
     }
 }

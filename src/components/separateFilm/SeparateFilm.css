@@ -1,4 +1,4 @@
-.whole-film {
+.whole-film-info {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -61,7 +61,7 @@
     margin-left: 8px;
 }
 
-.year-rating{
+.year-rating {
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -93,7 +93,7 @@
     background-color: rgba(105,156,194,0.6);
 }
 
-.info-film-desc{
+.info-film-description {
     font-family: SF Pro Display, sans-serif;
     font-style: normal;
     font-weight: normal;

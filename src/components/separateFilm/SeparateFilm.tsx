@@ -11,18 +11,18 @@ export const InfoFilm: FC<FilmProps> = ({infoFilm}) => {
 
     return (
         <>
-            <div className="whole-film">
+            <div className="whole-film-info">
                 <img src={infoFilm.img} className="whole-film-img" alt="img"/>
                 <div className="info-film">
                     <h1>{infoFilm.title}</h1>
-                    <div className = "year-rating">
+                    <div className="year-rating">
                         <p className="info-film-year">{infoFilm.year}</p>
                         <p className="info-film-rating">{infoFilm.rating}</p>
                     </div>
                     <div className="will-watch">
                         <button><img src={plus} className="plus" alt="plus"/>Буду смотреть</button>
                     </div>
-                    <p className="info-film-desc">{infoFilm.description}</p>
+                    <p className="info-film-description">{infoFilm.description}</p>
                     <div className="genres">
                         <button>Фантастика</button>
                         <button>Боевик</button>

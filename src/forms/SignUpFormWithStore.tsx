@@ -83,11 +83,11 @@ export const SignUpFormWithStore = observer(() => {
                 />
                 {(inputError) && <div style={{color: 'red', marginTop: 18}}>{inputError}</div>}
                 {isRegistered ?
-                    <Loading /> :
+                    <Loading/> :
                     <Button type="submit" disabled={!formValid} onClick={onButtonClick} buttonText="Регистрация"/>
                 }
                 <QuestionSlider question='Есть логин для входа?' href='/signIn' hrefText='Войти'/>
             </form>
         </div>
-);
+    );
 })

@@ -35,8 +35,6 @@ export const BaseLayout: FC<MainContainerProps> = ({children}) => {
                     <nav className='right-block'>
                         <img src={loupe} className="loupe" alt="loupe"/>
                         <p className='search'>Поиск</p>
-
-                        {/*здесь бы стоило прописать логику для смены выпадающего списка*/}
                         <ul className="drop-down">
                             <li><img src={avatar} className="profile" alt="profile"/>
                                     <ul className="submenu">
