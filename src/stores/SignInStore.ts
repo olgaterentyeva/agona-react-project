@@ -1,6 +1,6 @@
 import {action, makeObservable, observable, override} from "mobx";
 
-export default class AuthStore {
+export default class SignInStore {
 
     email = '';
     password = '';

@@ -1,11 +1,13 @@
-import {FC, ReactNode} from "react";
-import {NavLink} from 'react-router-dom';
+import {FC, ReactNode, useEffect, useState} from "react";
+import {NavLink, useParams} from 'react-router-dom';
 import miniLogo from '../../images/mini-logo.svg'
 import avatar from '../../images/avatar.svg'
 import loupe from '../../images/loupe.svg';
 import plus from '../../images/plus.svg'
 import circle from '../../images/circle.svg'
 import './BaseLayout.css'
+import {FilmModel} from "../../models/Film.model";
+import {useStores} from "../../utils";
 
 interface MainContainerProps {
     children: ReactNode;
@@ -36,7 +38,16 @@ export const BaseLayout: FC<MainContainerProps> = ({children}) => {
                     <nav className='right-side'>
                         <img src={loupe} className="loupe" alt="loupe"/>
                         <p className='search'>Поиск</p>
-                        <img src={avatar} className="profile" alt="profile"/>
+
+                        <ul className="drop-down">
+                            <li><img src={avatar} className="profile" alt="profile"/>
+                                    <ul className="submenu">
+                                        <li><NavLink to={`/signIn`}>Вход</NavLink></li>
+                                        <li><NavLink to={`/signUp`}>Регистрация</NavLink></li>
+                                    </ul>
+                            </li>
+                        </ul>
+
                     </nav>
                 </div>
             </header>

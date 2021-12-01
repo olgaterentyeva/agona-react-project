@@ -1,10 +1,11 @@
+import "./CollectionFilmsPage.css"
 import {BaseLayout} from "../../components/baseLayout/BaseLayout";
 import {observer} from "mobx-react";
 import {useStores} from "../../utils";
 import {Film} from "../../components/film/Film";
 import {ToggleSwitch} from "../../components/ui/toggleSwitch/ToggleSwitch";
 import menu from '../../images/menu.svg'
-import "./CollectionFilmsPage.css"
+import {NavLink} from "react-router-dom";
 
 export const CollectionFilmsPage = observer(() => {
 
@@ -12,7 +13,9 @@ export const CollectionFilmsPage = observer(() => {
 
     return (
         <>
-            <BaseLayout>
+            <BaseLayout
+
+            >
                 <h1 className = "collectionTitle">Коллекция</h1>
                 <div className="switch-menu">
                     <ToggleSwitch/>
