@@ -20,14 +20,13 @@ export const InfoFilm: FC<FilmProps> = ({infoFilm}) => {
                         <p className="info-film-rating">{infoFilm.rating}</p>
                     </div>
                     <div className="will-watch">
-                        <img src={plus} className="plus" alt="plus"/>
-                        <p className="will-watch-p">Буду смотреть</p>
+                        <button><img src={plus} className="plus" alt="plus"/>Буду смотреть</button>
                     </div>
                     <p className="info-film-desc">{infoFilm.description}</p>
                     <div className="genres">
-                        <p>Фантастика</p>
-                        <p>Боевик</p>
-                        <p>Триллер</p>
+                        <button>Фантастика</button>
+                        <button>Боевик</button>
+                        <button>Триллер</button>
                     </div>
                 </div>
             </div>

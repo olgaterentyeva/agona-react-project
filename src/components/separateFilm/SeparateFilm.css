@@ -13,7 +13,7 @@
 }
 
 .whole-film-img {
-    width: 250px;
+    width: 267px;
     height: 417px;
 }
 
@@ -67,13 +67,14 @@
     align-items: center;
 }
 
-.will-watch{
+.will-watch button {
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: space-evenly;
     border: 2px solid #002DFF;
     box-sizing: border-box;
+    background: none;
     border-radius: 22px;
     font-family: SF Pro Text, sans-serif;
     font-style: normal;
@@ -86,6 +87,10 @@
     height: 38px;
     margin-top: 22px;
     margin-bottom: 18px;
+}
+
+.will-watch button:hover {
+    background-color: rgba(105,156,194,0.6);
 }
 
 .info-film-desc{
@@ -104,11 +109,12 @@
     justify-content: space-between;
 }
 
-.genres p{
+.genres button {
     border: 2px solid #000000;
     box-sizing: border-box;
     border-radius: 16px;
     font-family: SF Pro Text, sans-serif;
+    background: none;
     font-style: normal;
     font-weight: 600;
     font-size: 15px;
@@ -118,4 +124,5 @@
     letter-spacing: -0.24px;
     color: #000000;
     padding: 6px 8px;
+    margin-top: 15px;
 }
