@@ -1,4 +1,4 @@
-@import "src/styles/colors"
+@import "src/styles/mixins"
 
 .wholeFilm
     display: flex
@@ -78,9 +78,7 @@
     box-sizing: border-box
     border-radius: 22px
     font-style: normal
-    font-weight: 500
-    font-size: 18px
-    line-height: 21px
+    @include regular-text
     letter-spacing: -0.336px
     color: $c-primary
     width: 188px

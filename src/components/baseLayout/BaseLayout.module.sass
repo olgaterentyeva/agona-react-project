@@ -1,4 +1,4 @@
-@import "src/styles/colors"
+@import "src/styles/mixins"
 
 .header
     background: $c-header
@@ -31,9 +31,7 @@
     .collection
         color: black
         font-style: normal
-        font-weight: 500
-        font-size: 18px
-        line-height: 21px
+        @include regular-text
         text-decoration: none
         display: flex
         flex-direction: row
@@ -66,9 +64,7 @@
 
     .add
         font-style: normal
-        font-weight: 500
-        font-size: 18px
-        line-height: 21px
+        @include regular-text
         padding-left: 12px
         cursor: pointer
 
@@ -94,9 +90,7 @@
 .search
     padding-left: 11px
     font-style: normal
-    font-weight: 500
-    font-size: 18px
-    line-height: 21px
+    @include regular-text
     cursor: pointer
 
 
