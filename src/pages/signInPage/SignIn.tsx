@@ -1,6 +1,6 @@
 import logo from "../../images/logo.svg";
 import {SignInFormWithStore} from "../../forms/SignInFormWithStore";
-import styles from './Sign.module.sass';
+import styles from '../signInPage/SignIn.module.sass';
 
 import React from "react";
 

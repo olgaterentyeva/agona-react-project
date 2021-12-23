@@ -1,7 +1,7 @@
 import React from "react";
 import logo from "../../images/logo.svg";
 import {SignUpFormWithStore} from "../../forms/SignUpFormWithStore";
-import styles from './Sign.module.sass';
+import styles from '../signUpPage/SignUp.module.sass';
 
 export const SignUp = () =>{
 

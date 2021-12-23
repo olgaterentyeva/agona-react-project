@@ -1,9 +1,7 @@
 import React from 'react';
-import './App.css';
-import './pages/signPages/Sign.module.sass';
 import {BrowserRouter, Switch, Route} from "react-router-dom";
-import {SignIn} from "./pages/signPages/SignIn";
-import {SignUp} from "./pages/signPages/SignUp";
+import {SignIn} from "./pages/signInPage/SignIn";
+import {SignUp} from "./pages/signUpPage/SignUp";
 import {Main} from "./pages/mainPage/Main";
 import {CollectionFilmsPage} from "./pages/collectionFilmsPage/CollectionFilmsPage";
 import {SeparateFilmPage} from "./pages/separateFilmPage/SeparateFilmPage";
