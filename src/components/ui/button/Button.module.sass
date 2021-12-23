@@ -1,4 +1,4 @@
-@import "src/styles/colors"
+@import "src/styles/mixins"
 
 .button
     width: 149px
@@ -24,7 +24,7 @@
         background-color: white
 
     &:disabled
-        border: 1px solid rgba(116, 116, 128, 0.08)
-        background: rgba(116, 116, 128, 0.08)
-        color: rgba(60, 60, 67, 0.3)
+        border: 1px solid $c-disButton
+        background: $c-disButton
+        color: $c-gray
         cursor: auto
