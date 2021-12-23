@@ -1,4 +1,4 @@
-import "./CollectionFilmsPage.css"
+import styles from "./CollectionFilmsPage.module.sass"
 import {BaseLayout} from "../../components/baseLayout/BaseLayout";
 import {observer} from "mobx-react";
 import {useStores} from "../../utils";
@@ -13,13 +13,13 @@ export const CollectionFilmsPage = observer(() => {
     return (
         <>
             <BaseLayout>
-                <h1 className="collectionTitle">Коллекция</h1>
-                <div className="switch-menu">
+                <h1 className = {styles.collectionTitle}>Коллекция</h1>
+                <div className={styles.switchMenu}>
                     <ToggleSwitch/>
                     <img src={menu} alt="menu"/>
                 </div>
-                <div className="filmCollection">
-                    <div className="film">
+                <div className={styles.filmCollection}>
+                    <div className={styles.film}>
                         {films.map(film => (
                             <div><Film key={film.id} film={film}/></div>
                         ))}

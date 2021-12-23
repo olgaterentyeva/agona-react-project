@@ -1,7 +1,7 @@
 import React from 'react';
 import './App.css';
-import './pages/signPages/Sign.css';
-import {BrowserRouter as Router, Switch, Route} from "react-router-dom";
+import './pages/signPages/Sign.module.sass';
+import {BrowserRouter, Switch, Route} from "react-router-dom";
 import {SignIn} from "./pages/signPages/SignIn";
 import {SignUp} from "./pages/signPages/SignUp";
 import {Main} from "./pages/mainPage/Main";
@@ -9,13 +9,17 @@ import {CollectionFilmsPage} from "./pages/collectionFilmsPage/CollectionFilmsPa
 import {SeparateFilmPage} from "./pages/separateFilmPage/SeparateFilmPage";
 import {Provider} from "mobx-react";
 import {mainStore} from "./stores/MainStore";
-import {Redirect} from "react-router";
+import {Redirect, Router} from "react-router";
+import {createBrowserHistory} from "history";
+
+const history = createBrowserHistory();
 
 function App() {
 
     return (
-        <Router>
+        <Router history={history}>
             <Provider {...mainStore}>
+                <BrowserRouter>
                 <Switch>
                     <Route path='/' exact component={Main}/>
                     <Route path='/signIn' exact component={SignIn}/>
@@ -24,6 +28,7 @@ function App() {
                     <Route path="/collection/:id" exact component={SeparateFilmPage}/>
                     <Redirect to="/collection"/>
                 </Switch>
+                </BrowserRouter>
             </Provider>
         </Router>
     );

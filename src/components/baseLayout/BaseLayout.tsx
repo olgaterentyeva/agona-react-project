@@ -5,7 +5,7 @@ import avatar from '../../images/avatar.svg'
 import loupe from '../../images/loupe.svg';
 import plus from '../../images/plus.svg'
 import circle from '../../images/circle.svg'
-import './BaseLayout.css'
+import styles from './BaseLayout.module.sass'
 
 interface MainContainerProps {
     children: ReactNode;
@@ -14,42 +14,43 @@ interface MainContainerProps {
 export const BaseLayout: FC<MainContainerProps> = ({children}) => {
     return (
         <>
-            <header className='header'>
-                <div className="headerCont">
-                    <nav className='left-block'>
-                        <div className="collection-circle">
-                            <NavLink to='/collection' exact className='collection' activeClassName='active'>
-                                <img src={circle} alt="circle"/>
-                                <p className="collectionText">Коллекция</p>
+            <header className={styles.header}>
+                <div className={styles.headerCont}>
+                    <nav className={styles.leftSide}>
+                        <div className={styles.collectionRound}>
+                            <NavLink to='/collection' exact className={styles.collection} activeClassName={styles.active}>
+                                <img src={circle} alt="round"/>
+                                <p className={styles.collectionText}>Коллекция</p>
                             </NavLink>
                         </div>
-                        <div className='add-with-plus'>
-                            <button className='add'><img src={plus} className="plus" alt="plus"/>Добавить</button>
+                        <div className={styles.addWithPlus}>
+                            <img src={plus} className={styles.plus} alt="plus"/>
+                            <p className={styles.add}>Добавить</p>
                         </div>
                     </nav>
 
-                    <NavLink to={`/collection`}>
-                        <img src={miniLogo} className="mini-logo" alt="mini-logo"/>
+                    <NavLink to = {`/`}>
+                        <img src={miniLogo} className={styles.shortLogo} alt="short-logo"/>
                     </NavLink>
 
-                    <nav className='right-block'>
-                        <img src={loupe} className="loupe" alt="loupe"/>
-                        <p className='search'>Поиск</p>
-                        <ul className="drop-down">
-                            <li><img src={avatar} className="profile" alt="profile"/>
-                                    <ul className="submenu">
-                                        <li><NavLink to={`/signIn`}>Вход</NavLink></li>
-                                        <li><NavLink to={`/signUp`}>Регистрация</NavLink></li>
-                                    </ul>
+                    <nav className={styles.rightSide}>
+                        <img src={loupe} className={styles.loupe} alt="loupe"/>
+                        <p className={styles.search}>Поиск</p>
+
+                        <ul className={styles.dropDown}>
+                            <li><img src={avatar} className={styles.profile} alt="profile"/>
+                                <ul className={styles.submenu}>
+                                    <li><NavLink to={`/signIn`}>Вход</NavLink></li>
+                                    <li><NavLink to={`/signUp`}>Регистрация</NavLink></li>
+                                </ul>
                             </li>
                         </ul>
-
                     </nav>
                 </div>
             </header>
 
             <main>
-                <div className="main-container">
+                <div className={styles.mainContainer}>
                     {children}
                 </div>
             </main>

@@ -1,9 +1,9 @@
 import React from "react";
-import './Input.css'
+import styles from './Input.module.sass'
 
 export const Input = (props:any) => {
     return (
-        <div className="input">
+        <div className={styles.input}>
             <input
                 name={props.name}
                 type={props.type}

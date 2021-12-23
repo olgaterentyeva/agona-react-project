@@ -1,14 +1,14 @@
 import logo from "../../images/logo.svg";
 import {SignInFormWithStore} from "../../forms/SignInFormWithStore";
-import './Sign.css';
+import styles from './Sign.module.sass';
 
 import React from "react";
 
 export const SignIn = () => {
 
     return (
-        <div className="signForm">
-            <img src={logo} className="signImg" alt="logotype"/>
+        <div className={styles.signIn}>
+            <img src={logo} className={styles.logo} alt="logotype"/>
             <SignInFormWithStore/>
         </div>
     );

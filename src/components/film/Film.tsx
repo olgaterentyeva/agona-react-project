@@ -1,7 +1,7 @@
 import {FC} from "react";
 import {NavLink} from "react-router-dom";
 import {FilmModel} from "../../models/Film.model";
-import './Film.css'
+import styles from './Film.module.sass'
 
 interface FilmProps {
     film: FilmModel;
@@ -10,11 +10,11 @@ interface FilmProps {
 export const Film: FC<FilmProps> = ({film}) => {
     return (
         <>
-            <div className="filmRating">{film.rating}</div>
-            <NavLink to={`/collection/${film.id}`} className="filmImg">
+            <div className={styles.filmRating}>{film.rating}</div>
+            <NavLink to={`/collection/${film.id}`} className={styles.filmImg}>
                 <img src={film.img} alt="cvg"/>
             </NavLink>
-            <div className="filmTitle">{film.title}</div>
+            <div className={styles.filmTitle}>{film.title}</div>
         </>
     );
 }

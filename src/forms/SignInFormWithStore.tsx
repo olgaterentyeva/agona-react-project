@@ -74,7 +74,7 @@ export const SignInFormWithStore = observer(() => {
                 {(inputError) && <div style={{color: 'red', marginTop: 18}}>{inputError}</div>}
                 {isRegistered ?
                     <Loading/> :
-                    <Button type="submit" disabled={!formValid} onClick={onButtonClick} buttonText="Регистрация"/>
+                    <Button type="submit" disabled={!formValid} onClick={onButtonClick} buttonText="Войти"/>
                 }
                 <QuestionSlider question='Еще не зарегистрированы?' href='/signUp' hrefText='Регистрация'/>
             </form>
